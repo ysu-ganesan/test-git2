@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Site Under Construction</title>
+  <style>
+    :root{
+      --bg1: #0f172a;
+      --bg2: #0b1020;
+      --accent: #ffcc00;
+      --muted: #bfc9d9;
+      --card: rgba(255,255,255,0.04);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(255,204,0,0.03), transparent),
+                  linear-gradient(120deg,var(--bg1),var(--bg2));
+      color: #e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+    }
+
+    .card{
+      width:100%;
+      max-width:920px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px;
+      padding:36px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      display:grid;
+      grid-template-columns: 220px 1fr;
+      gap:24px;
+      align-items:center;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .icon-wrap{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:160px;
+      width:160px;
+      border-radius:12px;
+      background: linear-gradient(135deg, rgba(255,204,0,0.12), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    /* Rotating gear SVG */
+    .gear { width:110px; height:110px; animation: spin 6s linear infinite; transform-origin:center; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    h1{
+      margin:0 0 8px 0;
+      font-size:28px;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+    p.lead{
+      margin:0 0 18px 0;
+      color:var(--muted);
+      line-height:1.45;
+    }
+
+    .progress {
+      height:10px;
+      width:100%;
+      background: rgba(255,255,255,0.04);
+      border-radius:999px;
+      overflow:hidden;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+      margin-bottom:14px;
+    }
+    .progress > i {
+      display:block;
+      height:100%;
+      width:60%; /* change to reflect progress */
+      background: linear-gradient(90deg,var(--accent), #ff9f1a);
+      border-radius:999px;
+      box-shadow: 0 6px 20px rgba(255,170,0,0.12);
+      position:relative;
+      overflow:hidden;
+    }
+    /* subtle moving shine */
+    .progress > i::after{
+      content:"";
+      position:absolute;
+      top:0; left:-40%;
+      width:40%;
+      height:100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+      animation: slide 2.6s linear infinite;
+    }
+    @keyframes slide{ to{ left:110%; } }
+
+    .meta{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:10px;
+      background: linear-gradient(90deg,var(--accent), #ff9f1a);
+      color:#081226;
+      font-weight:600;
+      text-decoration:none;
+      box-shadow: 0 8px 18px rgba(255,153,0,0.12);
+    }
+
+    .small{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .contact{
+      margin-top:14px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    /* responsive */
+    @media (max-width:720px){
+      .card{ grid-template-columns: 1fr; padding:20px; gap:16px; }
+      .icon-wrap{ margin: 0 auto; }
+      h1{ text-align:center }
+      .meta{ justify-content:center }
+      .contact{ justify-content:center }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="title">
+    <div class="icon-wrap" aria-hidden="true">
+      <!-- Simple SVG gear wrench -->
+      <svg class="gear" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="under construction">
+        <g transform="translate(50,50)">
+          <path d="M-6 -34 L6 -34 L10 -18 L26 -14 L24 -2 L34 8 L22 20 L12 34 L-4 30 L-12 38 L-26 30 L-30 14 L-20 4 L-24 -8 L-12 -20 Z"
+                fill="rgba(255,204,0,0.16)"/>
+          <circle r="16" fill="rgba(255,204,0,0.95)"/>
+          <path d="M-6 -6 L6 -6 L6 6 L-6 6 Z" fill="#081226"/>
+        </g>
+      </svg>
+    </div>
+
+    <section>
+      <h1 id="title">We’re working on something great</h1>
+      <p class="lead">Our site is currently under construction. We’re polishing things up so you’ll have a better experience once we’re live. Thanks for your patience — we’ll be back shortly.</p>
+
+      <div class="progress" aria-hidden="true">
+        <i></i>
+      </div>
+
+      <div class="meta" aria-hidden="true">
+        <div class="small">Estimated progress: <strong>60%</strong></div>
+        <div class="small">Target launch: <strong>Coming soon</strong></div>
+      </div>
+
+      <div class="contact" aria-label="contact options">
+        <a class="btn" href="mailto:hello@example.com">Contact Us</a>
+        <a class="small" href="#" onclick="subscribe()">Notify me</a>
+        <div class="small" style="margin-left:auto">Follow us: <strong>@yourhandle</strong></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Small optional handler for the "Notify me" link
+    function subscribe(){
+      const email = prompt("Enter your email to be notified when we launch:");
+      if(!email) return;
+      // In production you'd send `email` to your server. Here we just thank the user.
+      alert("Thanks — we'll notify: " + email);
+    }
+  </script>
+</body>
+</html>
